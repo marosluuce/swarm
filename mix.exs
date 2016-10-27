@@ -8,16 +8,16 @@ defmodule Swarm.Mixfile do
      elixirc_paths: elixirc_paths(Mix.env),
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     build_path: "../../_build",
-     config_path: "../../config/config.exs",
-     deps_path: "../../deps",
-     lockfile: "../../mix.lock",
+     build_path: "_build",
+     config_path: "config/config.exs",
+     deps_path: "deps",
+     lockfile: "mix.lock",
      deps: deps()]
   end
 
   def application do
     [mod: {Swarm, []},
-     applications: [:logger, :httpoison, :ant_battles]]
+     applications: [:logger, :httpoison]]
   end
 
   defp elixirc_paths(:test), do: ["lib", "test/support"]
@@ -25,7 +25,6 @@ defmodule Swarm.Mixfile do
 
   defp deps do
    [{:httpoison, "~> 0.9.0"},
-    {:poison, "~> 2.0"},
-    {:ant_battles, in_umbrella: true}]
+    {:poison, "~> 2.0"}]
   end
 end
